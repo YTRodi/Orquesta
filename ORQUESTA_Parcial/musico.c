@@ -14,18 +14,32 @@ int hardCodearMusicos(eMusico vecMusico[],int tMusic)
     {
         //id,nombre, apellido, edad, id orquesta, id instrumento, isempty
         {1001,"Yago","Rodi",21,1,101,0},
-        {1002,"Camila","Roy",20,2,107,0},
+        {1002,"Camila","Roy",20,10,107,0},
         {1003,"Facundo","Tedesco",27,3,107,0},
-        {1004,"Ban","Demon",50,4,102,0},
-        {1005,"Joaquin","Escanor",30,5,105,0},
-        {1006,"Elisabeth","Angelita",38,6,106,0},
+        {1004,"Ban","Demon",50,1,102,0},
+        {1005,"Joaquin","Escanor",30,9,105,0},
+        {1006,"Elisabeth","Angelita",38,10,106,0},
         {1007,"Napoli","Eufrasia",45,7,104,0},
-        {1008,"Cespedes","Nahuel",30,8,107,0},
+        {1008,"Cespedes","Nahuel",30,5,107,0},
         {1009,"Filipponi","Juana",18,9,102,0},
-        {1010,"Smith","Scott",22,10,103,0}
+        {1010,"Smith","Scott",22,2,103,0},
+        {1011,"Gimenez","Oscar",44,10,101,0},
+        {1012,"Castania","Cacho",50,3,103,0},
+        {1013,"Lozano","Veronica",38,5,102,0},
+        {1014,"Arce","Raul",20,1,104,0},
+        {1015,"Iglesias","Enrique",36,10,106,0},
+        {1016,"Martinez","Ines",48,8,105,0},
+        {1017,"Rico","Pedro",58,9,107,0},
+        {1018,"Rodriguez","Clara",33,6,102,0},
+        {1019,"Ruiz","Fabio",31,4,101,0},
+        {1020,"Bill","Gates",23,1,103,0},
+        {1021,"Jobs","Steve",29,8,105,0},
+        {1022,"Toro","Hugo",45,1,104,0},
+        {1023,"Vazques","Julia",50,10,101,0},
+        {1024,"Rodi","Joel",18,4,106,0},
+        {1025,"Rocha","Jeremias",26,7,105,0}
     };
-
-    for(int i = 0; i<10; i++)
+    for(int i = 0; i<25; i++)
     {
         vecMusico[i] = bMusico[i];
         contador++;
@@ -202,6 +216,8 @@ int modificarMusico(eMusico vecMusico[],
                     int tMusic,
                     eOrquesta vecOrquesta[],
                     int tOrq,
+                    eTipoOrquesta vecTipoOrquesta[],
+                    int tamTipoOrq,
                     eInstrumento vecInstrumento[],
                     int tInstru)
 {
@@ -241,6 +257,14 @@ int modificarMusico(eMusico vecMusico[],
             break;
 
         case 2:
+            printf("\n");
+            imprimirOrquestas(vecOrquesta,tOrq,vecTipoOrquesta,tamTipoOrq);
+            if(getInt(&vecMusico[index].idOrquesta,"\n<1-10>\nIngrese nueva orquesta: ","\nError. Reingrese",1,10,2)!=-1)
+            {
+                todoOk = 1;
+                printf("\n..Modificacion exitosa..\n\n");
+
+            }
             /**ACA AGREGAR PARA CAMBIAR EL ID DE ORQUESTA**/
 
             /*if(getString(vecCliente[index].domicilio,"\n<2-35 caract>\nIngrese nuevo domicilio: ","\nError. Reingrese",2,35,2)!=-1)

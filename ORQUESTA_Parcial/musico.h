@@ -53,6 +53,8 @@ int modificarMusico(eMusico vecMusico[],
                     int tMusic,
                     eOrquesta vecOrquesta[],
                     int tOrq,
+                    eTipoOrquesta vecTipoOrquesta[],
+                    int tamTipoOrq,
                     eInstrumento vecInstrumento[],
                     int tInstru);
 

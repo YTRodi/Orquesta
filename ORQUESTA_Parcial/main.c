@@ -8,13 +8,17 @@
 #include "Instrumento.h"
 
 #define TAMORQ 11
-#define TAMMUSIC 11
+#define TAMMUSIC 25
 #define TAMINSTRU 8
 #define TAMTIPOORQ 3
 #define TAMTIPOINSTRU 4
 
 
 int menuGeneralTeatro();
+
+void listarOrquestasConMasDe5Musicos(eOrquesta vecOrquesta[],int tOrq,eTipoOrquesta vecTipoOrquesta[],int tamTipoOrq,eMusico vecMusico[],int tMusic);
+int pedirMusicos(int idAIgualar,eMusico vecMusico[],int tMusic);
+
 
 int main()
 {
@@ -67,7 +71,7 @@ int main()
                 break;
 
             case 5:
-                modificarMusico(arrayMusico,TAMMUSIC,arrayOrquesta,TAMORQ,arrayInstrumento,TAMINSTRU);
+                modificarMusico(arrayMusico,TAMMUSIC,arrayOrquesta,TAMORQ,arrayTipoOrquesta,TAMTIPOORQ,arrayInstrumento,TAMINSTRU);
                 break;
 
             case 6:
@@ -87,6 +91,10 @@ int main()
 
             case 9:
                 imprimirInstrumentos(arrayInstrumento,TAMINSTRU,arrayTipoInstrumento,TAMTIPOINSTRU);
+                break;
+
+            case 10:
+                listarOrquestasConMasDe5Musicos(arrayOrquesta,TAMORQ,arrayTipoOrquesta,TAMORQ,arrayMusico,TAMMUSIC);
                 break;
 
             case 11:
@@ -126,9 +134,54 @@ int menuGeneralTeatro()
     printf("7 - Imprimir Musicos\n");
     printf("8 - Alta Instrumento\n");
     printf("9 - Imprimir Instrumentos\n");
+    printf("10 - imprimir orquesta con mas de 5 musicos\n");
     printf("11 - Salir\n");
     printf("20 - Imprimir tipo de orquesta\n");
     getInt(&option,"\nIngrese opcion: ","\nError.Opcion no valida",1,99,2);
     return option;
+}
+
+
+void listarOrquestasConMasDe5Musicos(eOrquesta vecOrquesta[],int tOrq,eTipoOrquesta vecTipoOrquesta[],int tamTipoOrq,eMusico vecMusico[],int tMusic)
+{
+    //int contador;
+    int todoOk = 0;
+    printf("\n");
+    printf("..::LAS ORQUESTAS CON MAS DE 5 MUSICOS SON::..\n\n");
+    printf("  ID      NOMBRE       LUGAR           TIPO\n");
+    printf("  --      ------       -----           ----\n\n");
+
+    for(int i = 0; i<tOrq;i++)
+    {
+        if(vecOrquesta[i].isEmpty == 0)
+        {
+            if(pedirMusicos(vecOrquesta[i].id,vecMusico,tMusic)>=5)
+            {
+                mostrarUnaOrquesta(vecOrquesta[i],vecTipoOrquesta,tamTipoOrq);
+                todoOk = 1;
+            }
+        }
+    }
+    if(todoOk == 0)
+    {
+        printf("\nNo hay orquestas con mas de 5 musicos\n\n");
+    }
+
+}
+
+int pedirMusicos(int idAIgualar,eMusico vecMusico[],int tMusic)
+{
+    int contador = 0;
+
+    for(int i = 0; i<tMusic;i++)
+    {
+        //aca estoy relacionando el idAigualar con el ID de quien mechear.
+
+        if(idAIgualar == vecMusico[i].idOrquesta && vecMusico[i].isEmpty == 0)
+        {
+            contador++;
+        }
+    }
+    return contador;
 }
 
