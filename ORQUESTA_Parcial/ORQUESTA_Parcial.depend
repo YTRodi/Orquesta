@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1571552310 source:c:\users\yago\desktop\orquesta parcial dios\orquesta_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"utn.h"
+	"Musico.h"
+	"Orquesta.h"
+	"Instrumento.h"
+
+1571552286 source:c:\users\yago\desktop\orquesta parcial dios\orquesta_parcial\instrumento.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"utn.h"
+	"Instrumento.h"
+
+1571546937 c:\users\yago\desktop\orquesta parcial dios\orquesta_parcial\utn.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+
+1571551906 c:\users\yago\desktop\orquesta parcial dios\orquesta_parcial\instrumento.h
+
+1571551147 c:\users\yago\desktop\orquesta parcial dios\orquesta_parcial\musico.h
+	"Orquesta.h"
+	"Instrumento.h"
+
+1571551640 c:\users\yago\desktop\orquesta parcial dios\orquesta_parcial\orquesta.h
+
+1571552063 source:c:\users\yago\desktop\orquesta parcial dios\orquesta_parcial\musico.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"Musico.h"
+	"utn.h"
+
+1571551691 source:c:\users\yago\desktop\orquesta parcial dios\orquesta_parcial\orquesta.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"utn.h"
+	"Musico.h"
+	"Orquesta.h"
+
+1571546936 source:c:\users\yago\desktop\orquesta parcial dios\orquesta_parcial\utn.c
+	"utn.h"
+
