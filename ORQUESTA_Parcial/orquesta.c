@@ -17,14 +17,14 @@ int hardCodearOrquestas(eOrquesta vecOrquesta[],int tOrq)
         //id,nombre,lugar,idtipoorq,isempty
 
         {1,"Yaki's","Argentina",2,0},
-        {2,"Camu's","UK",3,0},
+        {2,"Camu's","USA",3,0},
         {3,"Facu's","Finlandia",2,0},
         {4,"Bansi","Roma",1,0},
         {5,"Juaku","UK",1,0},
-        {6,"Eliz","Bolivia",3,0},
+        {6,"Eliz","Argentina",3,0},
         {7,"Napoli","Italia",2,0},
         {8,"Fave","Francia",2,0},
-        {9,"Filips","Filipinas",1,0},
+        {9,"Filips","UK",1,0},
         {10,"Smith's","USA",3,0}
     };
 

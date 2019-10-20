@@ -13,31 +13,31 @@ int hardCodearMusicos(eMusico vecMusico[],int tMusic)
     eMusico bMusico[]=
     {
         //id,nombre, apellido, edad, id orquesta, id instrumento, isempty
-        {1001,"Yago","Rodi",21,1,101,0},
+        {1001,"Yago","Rodi",21,8,101,0},
         {1002,"Camila","Roy",20,10,107,0},
-        {1003,"Facundo","Tedesco",27,3,107,0},
-        {1004,"Ban","Demon",50,1,102,0},
+        {1003,"Facundo","Tedesco",27,18,101,0},
+        {1004,"Ban","Demon",30,18,101,0},
         {1005,"Joaquin","Escanor",30,9,105,0},
-        {1006,"Elisabeth","Angelita",38,10,106,0},
-        {1007,"Napoli","Eufrasia",45,7,104,0},
+        {1006,"Elisabeth","Angelita",28,10,106,0},
+        {1007,"Napoli","Eufrasia",25,7,104,0},
         {1008,"Cespedes","Nahuel",30,5,107,0},
-        {1009,"Filipponi","Juana",18,9,102,0},
-        {1010,"Smith","Scott",22,2,103,0},
-        {1011,"Gimenez","Oscar",44,10,101,0},
-        {1012,"Castania","Cacho",50,3,103,0},
-        {1013,"Lozano","Veronica",38,5,102,0},
-        {1014,"Arce","Raul",20,1,104,0},
-        {1015,"Iglesias","Enrique",36,10,106,0},
-        {1016,"Martinez","Ines",48,8,105,0},
-        {1017,"Rico","Pedro",58,9,107,0},
-        {1018,"Rodriguez","Clara",33,6,102,0},
-        {1019,"Ruiz","Fabio",31,4,101,0},
-        {1020,"Bill","Gates",23,1,103,0},
+        {1009,"Filipponi","Juana",18,8,103,0},
+        {1010,"Smith","Scott",22,8,104,0},
+        {1011,"Gimenez","Oscar",24,10,101,0},
+        {1012,"Castania","Cacho",20,10,104,0},
+        {1013,"Lozano","Veronica",30,5,102,0},
+        {1014,"Arce","Raul",20,10,101,0},
+        {1015,"Iglesias","Enrique",30,10,106,0},
+        {1016,"Martinez","Ines",28,10,105,0},
+        {1017,"Rico","Pedro",18,9,107,0},
+        {1018,"Rodriguez","Clara",19,8,103,0},
+        {1019,"Ruiz","Fabio",30,4,101,0},
+        {1020,"Bill","Gates",23,8,101,0},
         {1021,"Jobs","Steve",29,8,105,0},
-        {1022,"Toro","Hugo",45,1,104,0},
-        {1023,"Vazques","Julia",50,10,101,0},
+        {1022,"Toro","Hugo",25,8,104,0},
+        {1023,"Vazques","Julia",18,10,101,0},
         {1024,"Rodi","Joel",18,4,106,0},
-        {1025,"Rocha","Jeremias",26,7,105,0}
+        {1025,"Rocha","Jeremias",30,7,105,0}
     };
     for(int i = 0; i<25; i++)
     {
@@ -69,7 +69,10 @@ int buscarLibreMusico(eMusico vecMusico[], int tMusic)
         }
     }
     return indice;
-}
+}if(flag == 0)
+    {
+        printf("\nNo hay musicos que toquen el instrumento guitarra.\n\n");
+    }
 
 void mostrarUnMusico(eMusico vecMusico,
                      eOrquesta vecOrquesta[],
@@ -333,4 +336,21 @@ int bajaMusico(eMusico vecMusico[],
     return todoOk;
 }
 
+void ordenarPorIdOrquesta(eMusico vecMusico[],int tMusic)
+{
+    eMusico aux;
+
+    for(int i = 0; i<tMusic-1; i++)
+    {
+        for(int j = i +1 ; j<tMusic; j++)
+        {
+            if(vecMusico[i].idOrquesta > vecMusico[j].idOrquesta)
+            {
+                aux = vecMusico[i];
+                vecMusico[i] = vecMusico[j];
+                vecMusico[j] = aux;
+            }
+        }
+    }
+}
 

@@ -64,3 +64,5 @@ int bajaMusico(eMusico vecMusico[],
                int tOrq,
                eInstrumento vecInstrumento[],
                int tInstru);
+
+void ordenarPorIdOrquesta(eMusico vecMusico[],int tMusic);
