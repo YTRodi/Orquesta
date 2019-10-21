@@ -93,7 +93,7 @@
 1571546936 source:c:\users\yago\desktop\orquesta\orquesta_parcial\utn.c
 	"utn.h"
 
-1571624045 source:c:\users\yago\desktop\orquesta\orquesta_parcial\main.c
+1571670512 source:c:\users\yago\desktop\orquesta\orquesta_parcial\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -102,4 +102,18 @@
 	"Musico.h"
 	"Orquesta.h"
 	"Instrumento.h"
+	"informes.h"
+
+1571670490 source:c:\users\yago\desktop\orquesta\orquesta_parcial\informes.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"utn.h"
+	"Musico.h"
+	"Orquesta.h"
+	"Instrumento.h"
+	"informes.h"
+
+1571670405 c:\users\yago\desktop\orquesta\orquesta_parcial\informes.h
 
