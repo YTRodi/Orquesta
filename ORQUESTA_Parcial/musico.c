@@ -14,7 +14,7 @@ int hardCodearMusicos(eMusico vecMusico[],int tMusic)
     {
         //id,nombre, apellido, edad, id orquesta, id instrumento, isempty
         {1001,"Yago","Rodi",21,8,101,0},
-        {1002,"Camila","Roy",20,10,107,0},
+        {1002,"Camila","Roy",20,10,5,0},
         {1003,"Facundo","Tedesco",27,18,101,0},
         {1004,"Ban","Demon",30,18,101,0},
         {1005,"Joaquin","Escanor",30,9,105,0},
@@ -25,21 +25,24 @@ int hardCodearMusicos(eMusico vecMusico[],int tMusic)
         {1010,"Smith","Scott",22,8,104,0},
         {1011,"Gimenez","Oscar",24,10,101,0},
         {1012,"Castania","Cacho",20,10,104,0},
-        {1013,"Lozano","Veronica",30,5,102,0},
+        {1013,"Lozano","Veronica",30,5,114,0},
         {1014,"Arce","Raul",20,10,101,0},
-        {1015,"Iglesias","Enrique",30,10,106,0},
+        {1015,"Iglesias","Enrique",30,10,108,0},
         {1016,"Martinez","Ines",28,10,105,0},
         {1017,"Rico","Pedro",18,9,107,0},
         {1018,"Rodriguez","Clara",19,8,103,0},
         {1019,"Ruiz","Fabio",30,4,101,0},
         {1020,"Bill","Gates",23,8,101,0},
-        {1021,"Jobs","Steve",29,8,105,0},
+        {1021,"Jobs","Steve",29,7,105,0},
         {1022,"Toro","Hugo",25,8,104,0},
         {1023,"Vazques","Julia",18,10,101,0},
         {1024,"Rodi","Joel",18,4,106,0},
-        {1025,"Rocha","Jeremias",30,7,105,0}
+        {1025,"Rocha","Jeremias",30,7,105,0},
+        {1026,"Quispe","Ignacio",30,7,103,0},
+        {1027,"Fancella","Guillermo",30,7,103,0},
+        {1028,"Pop","Loli",30,7,113,0}
     };
-    for(int i = 0; i<25; i++)
+    for(int i = 0; i<28; i++)
     {
         vecMusico[i] = bMusico[i];
         contador++;
@@ -69,10 +72,7 @@ int buscarLibreMusico(eMusico vecMusico[], int tMusic)
         }
     }
     return indice;
-}if(flag == 0)
-    {
-        printf("\nNo hay musicos que toquen el instrumento guitarra.\n\n");
-    }
+}
 
 void mostrarUnMusico(eMusico vecMusico,
                      eOrquesta vecOrquesta[],
@@ -168,7 +168,7 @@ int altaMusicoMaestra(eMusico vecMusico[],
                     {
                         imprimirInstrumentos(vecInstrumento,tInstru,vecTipoInstrumento,tamTipoInstru);
 
-                        if(getInt(&vecMusico[index].idInstrumento,"\n<101-107>\nIngrese ID del instrumento que va a tocar: ","Error.Reingrese",101,121,2)!=-1)//de 01 a 21 (20 instrumentos en total)
+                        if(getInt(&vecMusico[index].idInstrumento,"\n<101-115>\nIngrese ID del instrumento que va a tocar: ","Error.Reingrese",101,121,2)!=-1)//de 01 a 21 (20 instrumentos en total)
                         {
                             vecMusico[index].id = lastId;
                             vecMusico[index].isEmpty = 0;

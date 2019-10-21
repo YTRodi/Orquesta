@@ -8,8 +8,8 @@
 #include "Instrumento.h"
 
 #define TAMORQ 11
-#define TAMMUSIC 25
-#define TAMINSTRU 8
+#define TAMMUSIC 28
+#define TAMINSTRU 15
 #define TAMTIPOORQ 3
 #define TAMTIPOINSTRU 4
 
@@ -17,11 +17,21 @@
 int menuGeneralTeatro();
 
 void listarOrquestasConMasDe5Musicos(eOrquesta vecOrquesta[],int tOrq,eTipoOrquesta vecTipoOrquesta[],int tamTipoOrq,eMusico vecMusico[],int tMusic);
+
 int pedirMusicos(int idAIgualar,eMusico vecMusico[],int tMusic);
+
 void listarMusicosMayoresA30(eOrquesta vecOrquesta[],int tOrq,eMusico vecMusico[],int tMusic,eInstrumento vecInstrumento[],int tInstru);
+
 void listarOrquestaLugarSeleccionado(eOrquesta vecOrquesta[],int tOrq,eTipoOrquesta vecTipoOrquesta[],int tamTipoOrq);
-void listarOrquestasCompletas(eOrquesta vecOrquesta[],int tOrq,eTipoOrquesta vecTipoOrquesta[],int tamTipoOrq,eMusico vecMusico[],int tMusic,eTipoInstru vecTipoInstru[],int tamTipoInstru);
+
+void listarOrquestasCompletas(eOrquesta vecOrquesta[],int tOrq,
+                              eTipoOrquesta vecTipoOrquesta[],int tamTipoOrq,
+                              eMusico vecMusico[],int tMusic,
+                              eInstrumento vecInstrumento[],int tInstru,
+                              eTipoInstru vecTipoInstru[],int tamTipoInstru);
+
 int buscarOrquestaLugar(eOrquesta vecOrquesta[],int tOrq,char lugarABuscar[]);
+
 void listarMusicosDeUnaOrquestaSeleccionada(eOrquesta vecOrquesta[],int tOrq,
                                            eTipoOrquesta vecTipoOrquesta[],int tamTipoOrq,
                                            eMusico vecMusico[],int tMusic,
@@ -42,6 +52,10 @@ void listarMusicosGuitarra(eMusico vecMusico[],int tMusic,
                            eTipoInstru vecTipoInstrumento[],int tamTipoInstru);
 
 void ordenarGuitarristasPorApellidoOApellidoYNombre(eMusico vecMusico[],int tMusic);
+
+void imprimirPromedioDeMusicosPorOrquesta(eMusico vecMusico[], int tMusic, eOrquesta vecOrquesta[], int tOrq);
+
+void totalMusicos(eMusico vecMusico[],int tMusic);
 
 int main()
 {
@@ -129,7 +143,7 @@ int main()
                 break;
 
             case 14:
-                listarOrquestasCompletas(arrayOrquesta,TAMORQ,arrayTipoOrquesta,TAMTIPOORQ,arrayMusico,TAMMUSIC,arrayTipoInstrumento,TAMTIPOINSTRU);
+                listarOrquestasCompletas(arrayOrquesta,TAMORQ,arrayTipoOrquesta,TAMTIPOORQ,arrayMusico,TAMMUSIC,arrayInstrumento,TAMINSTRU,arrayTipoInstrumento,TAMTIPOINSTRU);
                 break;
 
             case 15:
@@ -141,10 +155,12 @@ int main()
                 break;
 
             case 17:
-                //ordenarGuitarristasPorApellidoOApellidoYNombre(arrayMusico,TAMMUSIC);
                 listarMusicosGuitarra(arrayMusico,TAMMUSIC,arrayOrquesta,TAMORQ,arrayInstrumento,TAMINSTRU,arrayTipoInstrumento,TAMTIPOINSTRU);
                 break;
 
+            case 18:
+                imprimirPromedioDeMusicosPorOrquesta(arrayMusico,TAMMUSIC,arrayOrquesta,TAMORQ);
+                break;
 
             case 11:
                 printf("Confirma salir? <s/n>: ");
@@ -189,7 +205,8 @@ int menuGeneralTeatro()
     printf("14 - imprimir orquestas completas\n");
     printf("15 - imprimir musicos de una orquesta seleccionada\n");
     printf("16 - imprimir orquesta con mas musicos\n");
-    printf("17 - listar musicos que toquen guitarra\n");
+    printf("17 - listar musicos que toquen instrumentos de cuerdas\n");
+    printf("18 - imprimir promedio de musicos por orquesta\n");
     printf("11 - Salir\n");
     printf("20 - Imprimir tipo de orquesta\n");
     getInt(&option,"\nIngrese opcion: ","\nError.Opcion no valida",1,99,2);
@@ -255,6 +272,10 @@ void listarMusicosMayoresA30(eOrquesta vecOrquesta[],int tOrq,eMusico vecMusico[
     */
 
     int flag = 0;
+
+    printf("\n");
+    printf("  ID      NOMBRE       APELLIDO    EDAD    ORQUESTA   INSTRUMENTO\n");
+    printf("  --      ------       --------    ----    --------   -----------\n\n");
 
     for(int i = 0; i<tMusic;i++)
     {
@@ -332,35 +353,62 @@ int buscarOrquestaLugar(eOrquesta vecOrquesta[],int tOrq,char lugarABuscar[])
     return index;
 }
 
-void listarOrquestasCompletas(eOrquesta vecOrquesta[],int tOrq,eTipoOrquesta vecTipoOrquesta[],int tamTipoOrq,eMusico vecMusico[],int tMusic,eTipoInstru vecTipoInstru[],int tamTipoInstru)
+void listarOrquestasCompletas(eOrquesta vecOrquesta[],int tOrq,
+                              eTipoOrquesta vecTipoOrquesta[],int tamTipoOrq,
+                              eMusico vecMusico[],int tMusic,
+                              eInstrumento vecInstrumento[],int tInstru,
+                              eTipoInstru vecTipoInstru[],int tamTipoInstru)
 {
-    /**NO FUNCA***/
+    /***FUNCA MAS O MENOS**/
+    int contadorCuerdas = 0;
+    int contadorVientos = 0;
+    int contadorPercusion = 0;
 
-    //char nombreTipoOrquesta[50];
-    char nombreTipoInstrumento[50];
-
-
-    for(int i = 0; i<tOrq;i++)
+    for(int i = 0;i<tOrq;i++)
     {
         if(vecOrquesta[i].isEmpty == 0)
         {
-            for(int j = 0; j<tMusic;j++)
+            for(int j = 0;j<tMusic;j++)
             {
-                if(vecMusico[j].isEmpty == 0)
+                if(vecMusico[j].idOrquesta == vecOrquesta[i].id && vecMusico[j].isEmpty == 0)
                 {
-                    for(int k = 0; k<tamTipoInstru;k++)
+                    for(int k = 0;k<tInstru;k++)
                     {
-                        cargarDescripcionTipoInstrumento(vecTipoInstru,tamTipoInstru,vecMusico[i].idInstrumento,nombreTipoInstrumento);
-
-                        if(strcmpi(nombreTipoInstrumento,"Guitarra")==0)
+                        if(vecMusico[j].idInstrumento == vecInstrumento[k].id && vecInstrumento[k].isEmpty == 0)
                         {
-                            mostrarUnaOrquesta(vecOrquesta[i],vecTipoOrquesta,tamTipoOrq);
+                            if(vecInstrumento[k].tipo == 1)
+                            {
+                                contadorCuerdas++;
+                            }
+                            if(vecInstrumento[k].tipo == 2 || vecInstrumento[k].tipo == 3)
+                            {
+                                contadorVientos++;
+                            }
+                            if(vecInstrumento[k].tipo == 4)
+                            {
+                                contadorPercusion++;
+                            }
                         }
                     }
                 }
             }
         }
+
+        if(contadorCuerdas>=5 && contadorVientos>=3 && contadorPercusion>=2)
+        {
+            mostrarUnaOrquesta(vecOrquesta[i],vecTipoOrquesta,tamTipoOrq);
+        }
     }
+
+
+
+
+
+
+
+
+
+
 }
 
 
@@ -476,29 +524,28 @@ void listarMusicosGuitarra(eMusico vecMusico[],int tMusic,
                            eInstrumento vecInstrumento[],int tInstru,
                            eTipoInstru vecTipoInstrumento[],int tamTipoInstru)
 {
-    /**ANDA PERO NO MUESTRA BIEN LA ORQUESTA**/
 
-    char nombreInstrumento[50];//EN ESTA VARIABLE CARGO EL NOMBRE DEL INSTRUMENTO
+    char nombreTipoInstrumento[50];//EN ESTA VARIABLE CARGO EL NOMBRE DEL INSTRUMENTO
     int flag = 0;
 
     printf("\n");
     printf("  ID      NOMBRE       APELLIDO    EDAD    ORQUESTA   INSTRUMENTO\n");
     printf("  --      ------       --------    ----    --------   -----------\n\n");
 
-    /*for(int i = 0; i<tMusic;i++)
+    for(int i = 0; i<tMusic;i++)
     {
         if(vecMusico[i].isEmpty == 0)
         {
-            for(int j = 0; j<tInstru;j++)
+            for(int j = 0 ; j<tInstru;j++)
             {
                 if(vecMusico[i].idInstrumento == vecInstrumento[j].id && vecInstrumento[j].isEmpty == 0)
                 {
-                    cargarNombreInstrumento(vecInstrumento,tInstru,vecMusico[i].idInstrumento,nombreInstrumento);
+                    cargarDescripcionTipoInstrumento(vecTipoInstrumento,tamTipoInstru,vecInstrumento[j].tipo,nombreTipoInstrumento);
 
-                    if(strcmpi(nombreInstrumento,"guitarra")==0)
+                    if(strcmpi(nombreTipoInstrumento,"cuerdas")==0)
                     {
-
-                        //mostrarUnMusico(vecMusico[i],vecOrquesta,tOrq,vecInstrumento,tInstru);
+                        ordenarGuitarristasPorApellidoOApellidoYNombre(vecMusico,tMusic);
+                        mostrarUnMusico(vecMusico[i],vecOrquesta,tOrq,vecInstrumento,tInstru);
                         flag = 1;
                     }
                 }
@@ -507,38 +554,8 @@ void listarMusicosGuitarra(eMusico vecMusico[],int tMusic,
     }
     if(flag == 0)
     {
-        printf("\nNo hay musicos que toquen el instrumento guitarra.\n\n");
-    }*/
-
-    for(int i = 0; i<tOrq;i++)
-    {
-        if(vecOrquesta[i].isEmpty == 0)
-        {
-            for(int j = 0;j<tMusic;j++)
-            {
-                if(vecMusico[j].isEmpty == 0)
-                {
-                    for(int k = 0;k<tInstru;k++)
-                    {
-                        if(vecMusico[j].idInstrumento == vecInstrumento[k].id && vecInstrumento[j].isEmpty == 0)
-                        {
-                            cargarNombreInstrumento(vecInstrumento,tInstru,vecMusico[j].idInstrumento,nombreInstrumento);
-                            if(strcmpi(nombreInstrumento,"guitarra")==0)
-                            {
-                                mostrarUnMusico(vecMusico[j],vecOrquesta,tOrq,vecInstrumento,tInstru);
-                                flag = 1;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        printf("\nNo hay musicos que toquen el instrumentos de cuerdas.\n\n");
     }
-    if(flag == 0)
-    {
-        printf("\nNo hay musicos que toquen el instrumento guitarra.\n\n");
-    }
-
 }
 
 
@@ -550,7 +567,7 @@ void ordenarGuitarristasPorApellidoOApellidoYNombre(eMusico vecMusico[],int tMus
     {
         for(int j = i+1;j<tMusic;j++)
         {
-            if(strcmpi(vecMusico[i].apellido,vecMusico[j].apellido)<0)
+            if(strcmpi(vecMusico[i].apellido,vecMusico[j].apellido)>0)
             {
                 auxMusico = vecMusico[i];
                 vecMusico[i] = vecMusico[j];
@@ -560,42 +577,37 @@ void ordenarGuitarristasPorApellidoOApellidoYNombre(eMusico vecMusico[],int tMus
     }
 }
 
-void imprimirPromedioDeMusicosPorOrquesta
 
 void imprimirPromedioDeMusicosPorOrquesta(eMusico vecMusico[], int tMusic, eOrquesta vecOrquesta[], int tOrq)
 {
+    int contador = 0;
+    int acumulador = 0;
+    float resultado;
 
-    char descripcion[50];
-    float mayor;
-    int flag = 0;
-
-    //system("cls");
-    printf("***Mejores Promedios por Orquesta***\n\n");
-
-    for( int i=0; i < tOrq; i++)
+    for(int i = 0; i<tMusic;i++)
     {
-        cargarNombreOrquesta(vecOrquesta,tOrq,vecOrquesta[i].id,descripcion);
-         //cargarDescCarrera(carreras[i].id, carreras, tOrq,descripcion);
-         printf("Orquesta: %s\n\n", descripcion);
-
-
-        for(int j = 0; j<tMusic;j++)
+        if(vecMusico[i].isEmpty == 0)
         {
-            if((mayor < vecMusico[j]))
-                /**USAR LA FUNCION cantidadMusicosOrquesta???? ***/
+            acumulador++;//musicos
         }
-
-         for(int j=0; j < tam; j++){
-            if( ((mayor < alumnos[j].promedio && alumnos[j].isEmpty == 0) && (alumnos[j].idCarrera == carreras[i].id)) || ( flag == 0  && alumnos[j].idCarrera == carreras[i].id)){
-                mayor = alumnos[j].promedio;
-                flag = 1;
-            }
-         }
-
-         printf("Promedio: %.2f\n\n", mayor);
-         mayor = 0;
-         flag = 0;
     }
+
+    for(int i = 0; i<tOrq;i++)
+    {
+        if(vecOrquesta[i].isEmpty == 0)
+        {
+            contador++;//orquestas
+        }
+    }
+
+    resultado = (float) acumulador/contador;
+
+    printf("\n        ...::DATOS::..\n");
+    printf("\nEl total de musicos es de : %d\n\n",acumulador);
+    printf("\nEl total de orquestas es de : %d\n\n",contador);
+
+    printf("\nEl promedio de musicos por orquesta es : %.2f\n\n",resultado);
+
 }
 
 

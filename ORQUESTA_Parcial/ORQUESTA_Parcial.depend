@@ -51,7 +51,7 @@
 1571546936 source:c:\users\yago\desktop\orquesta parcial dios\orquesta_parcial\utn.c
 	"utn.h"
 
-1571552286 source:c:\users\yago\desktop\orquesta\orquesta_parcial\instrumento.c
+1571619957 source:c:\users\yago\desktop\orquesta\orquesta_parcial\instrumento.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -67,7 +67,7 @@
 
 1571551906 c:\users\yago\desktop\orquesta\orquesta_parcial\instrumento.h
 
-1571614685 source:c:\users\yago\desktop\orquesta\orquesta_parcial\musico.c
+1571623725 source:c:\users\yago\desktop\orquesta\orquesta_parcial\musico.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -93,7 +93,7 @@
 1571546936 source:c:\users\yago\desktop\orquesta\orquesta_parcial\utn.c
 	"utn.h"
 
-1571615135 source:c:\users\yago\desktop\orquesta\orquesta_parcial\main.c
+1571624045 source:c:\users\yago\desktop\orquesta\orquesta_parcial\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>

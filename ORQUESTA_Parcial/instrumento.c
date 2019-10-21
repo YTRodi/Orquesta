@@ -19,6 +19,7 @@ int hardCodearInstrumento(eInstrumento vecInstru[],int tInstru)
         4-PERCUSION
         **/
 
+
         //id,nombre, apellido, tipo y isempty
         {101,"Guitarra",1,0},
         {102,"Bajo",1,0},
@@ -27,9 +28,17 @@ int hardCodearInstrumento(eInstrumento vecInstru[],int tInstru)
         {105,"Chelo",1,0},
         {106,"Flauta",2,0},
         {107,"Trompeta",3,0},
+        {108,"Viola",1,0},
+        {109,"Clarinete",2,0},
+        {110,"Saxofon",2,0},
+        {111,"Tuba",3,0},
+        {112,"Tambor",4,0},
+        {113,"Bombo",4,0},
+        {114,"Violonchelo",1,0},
+        {115,"Charango",1,0}
     };
 
-    for(int i = 0; i<7;i++)
+    for(int i = 0; i<15;i++)
     {
         vecInstru[i] = bInstrumento[i];
         contador++;
