@@ -5,6 +5,7 @@
     <br/>
 </h1>
 
-# Titulo del proyecto
+> El repositorio consta de trabajos prácticos realizados con el lenguaje ANSI C.
+## Titulo del proyecto
 
 Parcial orquesta (práctica).
