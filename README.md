@@ -4,13 +4,11 @@
     Repositorio de práctica de trabajos prácticos (ABM) de Programación/Laboratorio 1.
     <br/>
 </h1>
+> El repositorio consta de trabajos prácticos realizados con el lenguaje ANSI C.
 
 # Fecha de lanzamiento: 
 [Release v1.0](https://github.com/YTRodi/Orquesta/releases/tag/v1.0)
 
-
-
-> El repositorio consta de trabajos prácticos realizados con el lenguaje ANSI C.
 # Titulo:
 Parcial orquesta.
 # Enunciado:
