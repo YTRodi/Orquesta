@@ -12,10 +12,10 @@ Parcial orquesta.
 Un teatro necesita gestionar las orquestas que realizan conciertos en el lugar, para ello es necesario
 desarrollar un software que contará con el siguiente menú:
 
-```md
+``md
 1. Agregar Orquesta: Se da de alta una orquesta con nombre, lugar y tipo. Se generará un ID único
 para esta orquesta que se imprimirá por pantalla si el alta es correcta.
-```
+``
 * 1 -Agregar Orquesta: Se da de alta una orquesta con nombre, lugar y tipo. Se generará un ID único
 para esta orquesta que se imprimirá por pantalla si el alta es correcta.
 * 2 -Eliminar Orquesta: Se imprime la lista de orquestas. Luego se pide que se ingrese un ID y la
