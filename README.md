@@ -1,7 +1,7 @@
 <h1 align="center">
     <img src="http://utnfrae6.galeon.com/utn.jpg">
     <br/>
-    Repositorio de practica de trabajos practicos (ABM) de Programación/Laboratorio 1.
+    Repositorio de práctica de trabajos prácticos (ABM) de Programación/Laboratorio 1.
     <br/>
 </h1>
 
