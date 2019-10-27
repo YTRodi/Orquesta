@@ -33,10 +33,35 @@ tipo con un texto, no con números)
 ```
 
 # Datos:
-```md
+
 * Los tipos de orquesta que existirán son:
-Sinfónica
-Filarmónica
-Cámara
-```
+    - Sinfónica
+    - Filarmónica
+    - Cámara
+* Los tipos de instrumento que existirán son:
+    - Cuerdas
+    - Viento-madera
+    - Viento-metal
+    - Percusión
+* Existirán 50 orquestas como máximo.
+* Existirán 20 instrumentos como máximo.
+* Existirán 1000 músicos como máximo.
+* Un músico solo pertenece a una orquesta.
+
+# Recomendaciones:
+* Agregar al campo “isEmpty” a cada entidad.
+* Generar un ID auto incrementable para cada entidad.
+* Tratar a los “tipos” de orquesta e instrumento, como valores numéricos.
+* Antes de comenzar, realizar un diagrama con las entidades, todos sus campos y cómo se
+relacionan.
+* Antes de comenzar, realizar las funciones para imprimir cada uno de los arrays con todos sus
+campos (sin relacionarlos con los otros arrays) para poder probar los ABM.
+* Para poder probar los informes, realizar funciones que carguen con datos falsos los arrays de
+las entidades, y ejecutarlas al comenzar el programa.
+
+# Notas:
+* Se deberán desarrollar bibliotecas por cada entidad las cuales contendrán las funciones (Alta, Baja, Modificar, etc.).
+Los informes deberán estar en una biblioteca aparte. 
+* El código deberá tener comentarios con la documentación de cada una de las funciones y respetar las reglas de estilo
+de la cátedra.
 
