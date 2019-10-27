@@ -13,7 +13,7 @@ Un teatro necesita gestionar las orquestas que realizan conciertos en el lugar, 
 desarrollar un software que contará con el siguiente menú:
 
 ```md
-1) # Agregar Orquesta: Se da de alta una orquesta con nombre, lugar y tipo. Se generará un ID único
+1) Agregar Orquesta: Se da de alta una orquesta con nombre, lugar y tipo. Se generará un ID único
 para esta orquesta que se imprimirá por pantalla si el alta es correcta.
 2) Eliminar Orquesta: Se imprime la lista de orquestas. Luego se pide que se ingrese un ID y la
 misma se eliminará, junto con los músicos que la componen.
@@ -30,5 +30,13 @@ instrumento.
 para este instrumento que se imprimirá por pantalla si el alta es correcta.
 9) Imprimir instrumentos: Se imprime la lista de instrumentos indicando ID, nombre y tipo (Indicar el
 tipo con un texto, no con números)
+```
+
+# Datos:
+```md
+* Los tipos de orquesta que existirán son:
+Sinfónica
+Filarmónica
+Cámara
 ```
 
