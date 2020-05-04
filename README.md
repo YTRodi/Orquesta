@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="http://utnfrae6.galeon.com/utn.jpg">
+    <img src="https://www.semanarioargentino.miami/sur/wp-content/uploads/sites/9/2020/04/7382_2492017_UTN-455x381.jpg">
     <br/>
     Repositorio de práctica de trabajos prácticos (ABM) de Programación/Laboratorio 1.
     <br/>
